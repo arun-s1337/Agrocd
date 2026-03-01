@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: sample-service
+  name: {{ .Release.Name }}-service
 spec:
+  type: {{ .Values.service.type }}
   selector:
-    app: sample-app
+    app: {{ .Values.labels.app }}
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 80
-  type: NodePort
+    - protocol: TCP
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.container.port }}
