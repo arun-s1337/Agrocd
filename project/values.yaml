@@ -1,1 +1,16 @@
+replicaCount: 2
 
+image:
+  repository: nginx
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 80
+
+container:
+  port: 80
+
+labels:
+  app: sample-app
