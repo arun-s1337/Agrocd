@@ -21,3 +21,7 @@ spec:
         - name: ENV_VAR_NAME   
         volume:
         volumemount: 
+        volumes:
+        - name: my-volume 
+          configMap:
+            name: my-configmap
